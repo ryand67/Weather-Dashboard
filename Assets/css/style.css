@@ -1,0 +1,142 @@
+/* Main defaults */
+
+:root {
+    --main-dark: #333;
+    --main-light: rgb(247, 247, 247);
+    --main-blue: rgb(27, 152, 255);
+    --main-red: rgb(230, 43, 43);
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    background-color: var(--main-light);
+    color: var(--main-dark);
+}
+
+/* Header styling */
+
+header {
+    padding: .6em;
+    text-align: center;
+    background-color: var(--main-dark);
+    color: var(--main-light)
+}
+
+/* Container layout */
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Search box area styling */
+
+.search-form {
+    margin: .5em auto;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.cities-search {
+    margin: 1em .5em;
+    padding-left: .5em;
+    font-size: 30px;
+}
+
+.search-input {
+    width: 90%;
+    padding: .75em 3em;
+    padding-left: 1em;
+    background-color: var(--main-light);
+    color: var(--main-dark);
+    border-radius: 8px;
+    outline: none;
+    border: 2px solid var(--main-dark);
+}
+
+.search-button {
+    margin: 0 .2em;
+    padding: .5em;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--main-blue);
+}
+
+.fas {
+    color: var(--main-light);
+}
+
+
+table, td {
+    border: 2px solid var(--main-dark);
+}
+
+td {
+    padding: .5em;
+    padding-right: 8em;
+    cursor: pointer;
+}
+
+.popular-cities {
+    border-collapse: collapse;
+}
+
+/* Forecast Section */
+
+.forecast-section {
+    width: 80%;
+    margin: 1em;
+    padding: 1em 2em;
+}
+
+.current-weather {
+    width: 100%;
+    padding: 1em 1em;
+    border: 2px solid var(--main-dark);
+    border-radius: 10px;
+}
+
+.current-weather p, .current-weather h2 {
+    margin: 1em auto;
+}
+
+.uv-span {
+    background-color: var(--main-red);
+    padding: .2em .4em;
+    border-radius: 5px;
+    color: var(--main-light);
+}
+
+.five-day-title {
+    margin: .6em auto;
+}
+
+.five-day-boxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.five-day-box {
+    width: 100%;
+    padding: 1em;
+    margin: 0 1em;
+    width: 225px;
+    border-radius: 15px;
+    color: var(--main-light);
+    background-color: var(--main-blue);
+}
+
+.five-day-box p {
+    margin: .3em auto;
+}
+
