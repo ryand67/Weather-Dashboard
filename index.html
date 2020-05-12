@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 
     <!-- Font link -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -29,40 +29,17 @@
         <section class="cities-search">
             <h3 class="search-title">Search for a City:</h3>
             <form action="" class="search-form">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search weather...">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for a city" autocomplete="off">
                 <button type="submit" class="search-button" id="searchButton"><i class="fas fa-search fa-2x"></i></button>
             </form>
-            <table class="popular-cities">
-                <tr>
-                    <td>Austin</td>
-                </tr>
-                <tr>
-                    <td>Chicago</td>
-                </tr>
-                <tr>
-                    <td>New York</td>
-                </tr>
-                <tr>
-                    <td>Orlando</td>
-                </tr>
-                <tr>
-                    <td>San Francisco</td>
-                </tr>
-                <tr>
-                    <td>Seattle</td>
-                </tr>
-                <tr>
-                    <td>Denver</td>
-                </tr>
-                <tr>
-                    <td>Atlanta</td>
-                </tr>
-            </table>
+            <ul class="search-history">
+                
+            </ul>
         </section>
         
         <section class="forecast-section">
             <div class="current-weather">
-                <h2 class="current-title" id="mainTitle"><span id="currentCity"></span> <span id="currentDate"></span></h2>
+                <h2 class="current-title" id="mainTitle">--</h2>
                 <p>Temperature: <span id="currentTemp">-</span></p>
                 <p>Humidity: <span id="currentHum">-</span></p>
                 <p>Wind Speed: <span id="currentWS">-</span></p>
@@ -71,17 +48,10 @@
             <h3 class="five-day-title">5-Day Forecast:</h3>
             <div class="five-day-boxes" id="five-day-div">
                 <div class="five-day-box">
-                    <h2 class="forecast-box-title">8/16/20</h2>
-                    <p class="icon-space">ICON SPACE</p>
-                    <p>Temp: 86F</p>
-                    <p>Humidity: 34%</p>
-                </div>
-
-                <div class="five-day-box">
-                    <h2 class="forecast-box-title">8/16/20</h2>
-                    <p class="icon-space">ICON SPACE</p>
-                    <p>Temp: 86F</p>
-                    <p>Humidity: 34%</p>
+                    <h2 class="forecast-box-title">-/--/--</h2>
+                    <p class="icon-space">-</p>
+                    <p>Temp: -</p>
+                    <p>Humidity: -</p>
                 </div>
             </div>
         </section>

@@ -5,6 +5,9 @@
     --main-light: rgb(247, 247, 247);
     --main-blue: rgb(27, 152, 255);
     --main-red: rgb(230, 43, 43);
+    --main-orange: rgb(240, 143, 78);
+    --main-yellow: rgb(253, 255, 117);
+    --main-green: rgb(63, 228, 71);
 }
 
 *,
@@ -51,6 +54,7 @@ header {
     margin: 1em .5em;
     padding-left: .5em;
     font-size: 30px;
+    width: 30%;
 }
 
 .search-input {
@@ -76,19 +80,14 @@ header {
     color: var(--main-light);
 }
 
-
-table, td {
-    border: 2px solid var(--main-dark);
+ul hr {
+    margin: 1em auto;
+    border: 1px solid var(--main-dark);
 }
 
-td {
-    padding: .5em;
-    padding-right: 8em;
+li {
+    list-style: none;
     cursor: pointer;
-}
-
-.popular-cities {
-    border-collapse: collapse;
 }
 
 /* Forecast Section */
@@ -111,10 +110,9 @@ td {
 }
 
 .uv-span {
-    background-color: var(--main-red);
     padding: .2em .4em;
     border-radius: 5px;
-    color: var(--main-light);
+    color: var(--main-dark);
 }
 
 .five-day-title {
@@ -139,4 +137,3 @@ td {
 .five-day-box p {
     margin: .3em auto;
 }
-
