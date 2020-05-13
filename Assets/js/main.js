@@ -138,6 +138,7 @@ $(document).ready(function() {
         event.preventDefault();
         updateHistory($("#searchInput").val().trim());
         updateWeather($("#searchInput").val().trim());
+        searchInput.val("");
     })
 
     //Binds the popular cities list to call the function that updates the weather
