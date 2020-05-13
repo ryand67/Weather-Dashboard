@@ -47,21 +47,21 @@ header {
     margin: .5em auto;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
+    margin-bottom: 1em;
 }
 
 .cities-search {
     margin: 1em .5em;
     padding-left: .5em;
     font-size: 30px;
-    width: 30%;
+    width: 20%;
 }
 
 .search-input {
     width: 90%;
     padding: .75em 3em;
     padding-left: 1em;
-    margin-bottom: 1em;
     background-color: var(--main-light);
     color: var(--main-dark);
     border-radius: 8px;
@@ -97,6 +97,7 @@ li {
     width: 80%;
     margin: 1em;
     padding: 1em 2em;
+    margin-bottom: 0;
 }
 
 .current-weather {
@@ -106,8 +107,17 @@ li {
     border-radius: 10px;
 }
 
-.current-weather p, .current-weather h2 {
+.current-weather p {
     margin: 1em auto;
+}
+
+.title-container {
+    margin: 1em 0;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .uv-span {

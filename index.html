@@ -21,38 +21,47 @@
     <script src="./Assets/js/main.js"></script>
 </head>
 <body>
+    <!-- Header with title -->
     <header>
         <h1 class="main-title">Weather Dashboard</h1>
     </header>
 
+    <!-- Search area -->
     <main class="container">
         <section class="cities-search">
+            <!-- Search bar -->
             <h3 class="search-title">Search for a City:</h3>
             <form action="" class="search-form">
                 <input type="text" class="search-input" id="searchInput" placeholder="Search for a city" autocomplete="off">
                 <button type="submit" class="search-button" id="searchButton"><i class="fas fa-search fa-2x"></i></button>
             </form>
+            <!-- History -->
             <ul class="search-history" id="searchHistoryList">
                 
             </ul>
         </section>
         
+        <!-- Current forecast section -->
         <section class="forecast-section">
             <div class="current-weather">
-                <h2 class="current-title" id="mainTitle">--</h2>
+                <div class="title-container">
+                    <h2 class="current-title" id="mainTitle">--</h2>
+                    <img src="" alt="" id="currentIcon">
+                </div>
                 <p>Temperature: <span id="currentTemp">-</span></p>
                 <p>Humidity: <span id="currentHum">-</span></p>
                 <p>Wind Speed: <span id="currentWS">-</span></p>
                 <p>UV Index: <span class="uv-span" id="currentUV">-</span></p>
             </div>
+            <!-- Five day forecast -->
             <h3 class="five-day-title">5-Day Forecast:</h3>
             <div class="five-day-boxes" id="five-day-div">
-                <div class="five-day-box">
+                <!-- <div class="five-day-box">
                     <h2 class="forecast-box-title">-/--/--</h2>
                     <p class="icon-space">-</p>
                     <p>Temp: -</p>
                     <p>Humidity: -</p>
-                </div>
+                </div> -->
             </div>
         </section>
     </main>

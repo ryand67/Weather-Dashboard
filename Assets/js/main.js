@@ -26,7 +26,7 @@ $(document).ready(function() {
             //Displays the city and the current date
             mainTitle.text(response.name + " Weather " + month + "/" + day + "/" + year);
             //Puts the icon next to the city and date
-            // currentIcon.attr("src", "http://openweathermap.org/img/wn/11d@2x.png");
+            currentIcon.attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
             //Sets the temperature
             currentTemp.text(response.main.temp.toFixed(1) + "°F");
             //Sets humidity
@@ -67,24 +67,33 @@ $(document).ready(function() {
 
     //Function that renders the five day forecast blocks
     function fiveDayRender(place) {
-        var forecastVar;
+        //Variable holding the hours I need from the forecast.
+        var forecastHours = [0, 8, 16, 24, 32]
         //Grab the forecast for the place
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + place + '&units=imperial&appid=7e6a0f7a8f2fee7813d7ade6f80a831b',
             method: "GET"
         }).then(function(response) {
-            console.log("hey")
             console.log(response);
-            //Runs through the forecast 24 hours apart
+            fiveDayDiv.html("");
+            forecastHours.forEach(function(e) {
+                var newBox = $("<div>").addClass("five-day-box");
+                var boxDate = $("<h2>").text(dateReformat(response.list[e].dt_txt.toString()))
+                var boxIcon = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[e].weather[0].icon + "@2x.png");
+                var boxTemp = $("<p>").text("Temp: " + response.list[e].main.temp + "°F");
+                var boxHum = $("<p>").text("Humidity: " + response.list[e].main.humidity + "%");
+                newBox.append(boxDate, boxIcon, boxTemp, boxHum);
+                fiveDayDiv.append(newBox);
+            })
         })
     }
 
     function dateReformat(str) {
-        str = toString(str);
         var month = str.slice(5,7);
         var day = str.slice(8,10);
-        var year = str.slice(0,5);
-        return month + "/" + day + "/" + year;
+        var year = str.slice(0,4);
+        var result = month + "/" + day + "/" + year;
+        return result;
     }
 
     //Renders the search history on the screen
@@ -127,8 +136,8 @@ $(document).ready(function() {
     //Search button updates the weather and the history, seperated the update/render functions because I don't need an entry to be added when the user clicks on it from teh side bar.
     $("#searchButton").on("click", function() {
         event.preventDefault();
-        updateHistory($("#searchInput").val());
-        updateWeather($("#searchInput").val());
+        updateHistory($("#searchInput").val().trim());
+        updateWeather($("#searchInput").val().trim());
     })
 
     //Binds the popular cities list to call the function that updates the weather
