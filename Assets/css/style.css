@@ -6,7 +6,7 @@
     --main-blue: rgb(27, 152, 255);
     --main-red: rgb(230, 43, 43);
     --main-orange: rgb(240, 143, 78);
-    --main-yellow: rgb(253, 255, 117);
+    --main-yellow: rgb(207, 209, 98);
     --main-green: rgb(63, 228, 71);
 }
 
@@ -61,6 +61,7 @@ header {
     width: 90%;
     padding: .75em 3em;
     padding-left: 1em;
+    margin-bottom: 1em;
     background-color: var(--main-light);
     color: var(--main-dark);
     border-radius: 8px;

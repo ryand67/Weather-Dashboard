@@ -22,8 +22,7 @@ $(document).ready(function() {
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/weather?q=' + place + '&units=imperial&appid=7e6a0f7a8f2fee7813d7ade6f80a831b'
         }).then(function(response) {
-            //Logs the response
-            console.log(response);
+            // console.log(response);
             //Displays the city and the current date
             mainTitle.text(response.name + " Weather " + month + "/" + day + "/" + year);
             //Puts the icon next to the city and date
@@ -34,22 +33,61 @@ $(document).ready(function() {
             currentHum.text(response.main.humidity + "%");
             //Sets windspeed
             currentWS.text(response.wind.speed + "MPH");
-            //Sets UV index and color
+            //Sets UV index and color and passes in the appropriate lat and lon
+            getUV(response.coord.lat, response.coord.lon);
+        })
+        fiveDayRender(place);
+    }
 
-            fiveDayRender(place);
+    //Takes in lat and lon coordinates to get the UV index
+    function getUV(lat, lon) {
+        //Calls on the api passing in the lat and lon in the url
+        $.ajax({
+            url: 'http://api.openweathermap.org/data/2.5/uvi?appid=7e6a0f7a8f2fee7813d7ade6f80a831b&lat='+ lat + '&lon=' + lon,
+            method: "GET"
+        }).then(function(response) {
+            //Stores in a convenience variable
+            var uvIndex = response.value;
+            //Sets the text color to be read against the background
+            currentUV.css("color", "var(--main-light)");
+            //Sets the text value
+            currentUV.text(uvIndex);
+            //Sets the background color to the appropriate color based on uv index
+            if(uvIndex <= 3.33) {
+                currentUV.css("background-color", "var(--main-green)")
+            } else if(uvIndex > 3.33 && uvIndex <= 6.66) {
+                currentUV.css("background-color", "var(--main-yellow)")
+            } else if(uvIndex > 6.66 && uvIndex <= 9.99) {
+                currentUV.css("background-color", "var(--main-orange)");
+            } else if(uvIndex >= 10) {
+                currentUV.css("background-color", "var(--main-red)");
+            }
         })
     }
 
     //Function that renders the five day forecast blocks
     function fiveDayRender(place) {
+        var forecastVar;
+        //Grab the forecast for the place
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + place + '&units=imperial&appid=7e6a0f7a8f2fee7813d7ade6f80a831b',
             method: "GET"
         }).then(function(response) {
+            console.log("hey")
             console.log(response);
+            //Runs through the forecast 24 hours apart
         })
     }
 
+    function dateReformat(str) {
+        str = toString(str);
+        var month = str.slice(5,7);
+        var day = str.slice(8,10);
+        var year = str.slice(0,5);
+        return month + "/" + day + "/" + year;
+    }
+
+    //Renders the search history on the screen
     function renderHistory() {
         //Clears the list space to avoid repeats
         searchHistoryList.html("");
@@ -98,4 +136,5 @@ $(document).ready(function() {
         updateWeather($(this).text());
     })
     
+    renderHistory();
 })
