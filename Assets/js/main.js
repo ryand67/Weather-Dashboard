@@ -68,7 +68,7 @@ $(document).ready(function() {
     //Function that renders the five day forecast blocks
     function fiveDayRender(place) {
         //Variable holding the hours I need from the forecast.
-        var forecastHours = [0, 8, 16, 24, 32]
+        var forecastHours = [7, 15, 23, 31, 39]
         //Grab the forecast for the place
         $.ajax({
             url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + place + '&units=imperial&appid=7e6a0f7a8f2fee7813d7ade6f80a831b',
