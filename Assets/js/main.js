@@ -136,9 +136,11 @@ $(document).ready(function() {
     //Search button updates the weather and the history, seperated the update/render functions because I don't need an entry to be added when the user clicks on it from teh side bar.
     $("#searchButton").on("click", function() {
         event.preventDefault();
-        updateHistory($("#searchInput").val().trim());
-        updateWeather($("#searchInput").val().trim());
-        searchInput.val("");
+        if(searchInput.val().trim() !== "") {
+            updateHistory($("#searchInput").val().trim());
+            updateWeather($("#searchInput").val().trim());
+            searchInput.val("");
+        }
     })
 
     //Binds the popular cities list to call the function that updates the weather
