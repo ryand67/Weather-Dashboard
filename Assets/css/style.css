@@ -114,6 +114,12 @@ li {
     margin: 1em auto;
 }
 
+.current-icon {
+    margin-left: 1em;
+    background-color: var(--main-blue);
+    border-radius: 15px;
+}
+
 .title-container {
     margin: 1em 0;
     margin-right: auto;
