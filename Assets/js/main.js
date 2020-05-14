@@ -43,7 +43,7 @@ $(document).ready(function() {
     function getUV(lat, lon) {
         //Calls on the api passing in the lat and lon in the url
         $.ajax({
-            url: 'http://api.openweathermap.org/data/2.5/uvi?appid=7e6a0f7a8f2fee7813d7ade6f80a831b&lat='+ lat + '&lon=' + lon,
+            url: 'https://api.openweathermap.org/data/2.5/uvi?appid=7e6a0f7a8f2fee7813d7ade6f80a831b&lat='+ lat + '&lon=' + lon,
             method: "GET"
         }).then(function(response) {
             //Stores in a convenience variable
