@@ -133,7 +133,7 @@ $(document).ready(function() {
         renderHistory();
     }
 
-    //Search button updates the weather and the history, seperated the update/render functions because I don't need an entry to be added when the user clicks on it from teh side bar.
+    //Search button updates the weather and the history, seperated the update/render functions because I don't need an entry to be added when the user clicks on it from the side bar.  Checks the user actually input something.
     $("#searchButton").on("click", function() {
         event.preventDefault();
         if(searchInput.val().trim() !== "") {
